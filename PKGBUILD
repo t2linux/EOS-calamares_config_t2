@@ -7,7 +7,7 @@ arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
 source=(
-    git+https://github.com/t2linux/EndeavourOS-calamares.git#branch=Atlantis_neo
+    git+https://github.com/t2linux/EndeavourOS-calamares-t2.git#branch=Atlantis_neo
 )
 
 sha512sums=('SKIP')
