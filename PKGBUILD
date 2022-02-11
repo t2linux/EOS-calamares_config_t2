@@ -1,4 +1,4 @@
-# Maintainer: joekamprad <joekamprad@endeavouros.com>
+# Maintainer: Noa Himesaka <himesaka@noa.codes>
 pkgname=calamares_config_t2
 pkgver=1.0
 pkgrel=31
