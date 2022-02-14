@@ -16,21 +16,21 @@ _date=$(date +%Y.%m.%d)
 
 prepare() {
     # set date for calamares_branding
-    sed -i $srcdir/EndeavourOS-calamares/calamares/branding/endeavouros/branding.desc \
+    sed -i $srcdir/EndeavourOS-calamares-t2/calamares/branding/endeavouros/branding.desc \
     -e "s|^\(    version:[ ]*\).*$|\1$_date|" \
     -e "s|^\(    shortVersion:[ ]*\).*$|\1$_date|"
 
-    chmod +x $srcdir/EndeavourOS-calamares/calamares/scripts/{cleaner_script.sh,chrooted_cleaner_script.sh,update-mirrorlist,pacstrap_calamares}
+    chmod +x $srcdir/EndeavourOS-calamares-t2/calamares/scripts/{cleaner_script.sh,chrooted_cleaner_script.sh,update-mirrorlist,pacstrap_calamares}
 
-    cp $srcdir/EndeavourOS-calamares/calamares/files/netinstall.yaml  $srcdir/EndeavourOS-calamares/calamares/modules/
-    rm $srcdir/EndeavourOS-calamares/calamares/settings_community.conf
-    rm $srcdir/EndeavourOS-calamares/calamares/modules/{contextualprocess.conf,packagechooser.conf,netinstall_community-base.conf,shellprocess_plist.conf}
-    rm -R $srcdir/EndeavourOS-calamares/calamares/{ce,images}
+    cp $srcdir/EndeavourOS-calamares-t2/calamares/files/netinstall.yaml  $srcdir/EndeavourOS-calamares-t2/calamares/modules/
+    rm $srcdir/EndeavourOS-calamares-t2/calamares/settings_community.conf
+    rm $srcdir/EndeavourOS-calamares-t2/calamares/modules/{contextualprocess.conf,packagechooser.conf,netinstall_community-base.conf,shellprocess_plist.conf}
+    rm -R $srcdir/EndeavourOS-calamares-t2/calamares/{ce,images}
 }
 
 package() {
     install -dm 755 $pkgdir/etc/calamares
-    cp -r --no-preserve=ownership $srcdir/EndeavourOS-calamares/calamares $pkgdir/etc/
+    cp -r --no-preserve=ownership $srcdir/EndeavourOS-calamares-t2/calamares $pkgdir/etc/
 
-    rm -rf ../EndeavourOS-calamares    # cleanup
+    rm -rf ../EndeavourOS-calamares-t2    # cleanup
 }
