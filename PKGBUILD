@@ -12,7 +12,7 @@ url='https://t2linux.org'
 license=('GPL3')
 source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-T2.tar.gz")
 
-sha512sums=('c6d349ef8c4c1ab756caf93f2caa1956294030e195698ace69dfeb74c689a8b1d362bd78b830a09e68440912beeca3805dda072e501619ab2fd409127ca50702')
+sha512sums=('SKIP')
 
 
 _date=$(date +%Y.%m.%d)
