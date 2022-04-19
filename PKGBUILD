@@ -2,7 +2,7 @@
 # Original EOS Maintainer: EndeavourOS <info@endeavouros.com>
 
 pkgname=calamares_config_t2
-pkgver=22.04.1.4-T2
+pkgver=22.04.1.4
 pkgrel=1
 _repo_name=EndeavourOS-calamares-t2
 pkgdesc='EndeavourOS calamares configuration files and branding for Apple devices 
@@ -10,7 +10,7 @@ with the T2 security chip'
 arch=('any')
 url='https://t2linux.org'
 license=('GPL3')
-source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}.tar.gz")
+source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-T2.tar.gz")
 
 sha512sums=('c6d349ef8c4c1ab756caf93f2caa1956294030e195698ace69dfeb74c689a8b1d362bd78b830a09e68440912beeca3805dda072e501619ab2fd409127ca50702')
 
@@ -18,7 +18,7 @@ sha512sums=('c6d349ef8c4c1ab756caf93f2caa1956294030e195698ace69dfeb74c689a8b1d36
 _date=$(date +%Y.%m.%d)
 
 prepare() {
-    mv "$_repo_name-$pkgver"            "$_repo_name"
+    mv "$_repo_name-$pkgver-T2"            "$_repo_name"
 
     # set date for calamares_branding
     sed -i "$srcdir/${_repo_name}/calamares/branding/endeavouros/branding.desc" \
