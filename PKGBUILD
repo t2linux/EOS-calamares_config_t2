@@ -3,7 +3,7 @@
 
 pkgname=calamares_config_ce_t2
 pkgver=22.04.1.4
-pkgrel=1
+pkgrel=2
 _repo_name=EndeavourOS-calamares-t2
 pkgdesc='EndeavourOS calamares configuration files for Community Editions for Apple devices with the T2 security chip'
 arch=('any')
