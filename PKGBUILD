@@ -18,7 +18,7 @@ _caldir="$pkgname/calamares"
 
 prepare() {
     mkdir -p "$_caldir/modules"
-    mv "$_repo_name-$pkgver"            "$_repo_name"
+    mv "$_repo_name-$pkgver-T2"            "$_repo_name"
 
     cp "${_repo_name}/calamares/modules/netinstall-ce-base.yaml"            "$_caldir/modules/"
     cp "${_repo_name}/calamares/modules/packagechooser_ce.conf"             "$_caldir/modules/"
