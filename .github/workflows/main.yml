@@ -1,56 +1,50 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Build Package
-
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the senpai branch
-  push:
-    branches: [ senpai ]
-  pull_request:
-    branches: [ senpai ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+name: Build Kernel Package
+on: [push, pull_request]
 jobs:
-  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
-    container:
-      image: archlinux
-      options: --privileged
-      volumes:
-        - /sys/fs/cgroup:/sys/fs/cgroup
     steps:
-      - uses: actions/checkout@v2
-      - name: Build Arch Linux package
-        uses: FFY00/build-arch-package@v1
-        with:
-          PKGBUILD: $GITHUB_WORKSPACE/PKGBUILD
-      - name: Upload Built Packages
-        uses: actions/upload-artifact@v2
-        with:
-          name: built-packages
-          path: ${{ github.workspace }}/arch-packages/*.pkg.tar.*
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+    - name: Build In Docker
+      run: |
+        cat << EOF > entrypoint.sh
+        cd /build
+        useradd builduser -m
+        passwd -d builduser
+        pacman -Syu --noconfirm --needed sudo base-devel
+        printf 'builduser ALL=(ALL) ALL\\n' | tee -a /etc/sudoers
+        chown -R builduser:builduser ./
+        sudo -u builduser bash -c 'export MAKEFLAGS=j\$(nproc) && makepkg -s --noconfirm'
+        EOF
+
+        docker run -t -v $PWD:/build archlinux /bin/bash /build/entrypoint.sh
+    
+    - name: Print sha512sums
+      run: sha512sum *.pkg.tar.*
+
+    - name: Upload Built Packages
+      uses: actions/upload-artifact@v2
+      with:
+        name: built-packages
+        path: ${{ github.workspace }}/*.pkg.tar.*
         
-      - name: Create Tag
-        id: create_tag
-        run: |
-          source PKGBUILD
-          echo "::set-output name=tag::${pkgver}-${pkgrel}"
-          echo $pkgver $pkgrel
-      - name: Release
-        if: ${{ github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[no rel]') }}
-        uses: softprops/action-gh-release@v1
-        with:
-           files: |
-             ${{ github.workspace }}/*.pkg.tar.*
-           tag_name: v${{ steps.create_tag.outputs.tag }}
-           draft: ${{ contains(github.event.head_commit.message, '[draft]') }}
-           prerelease: ${{ contains(github.event.head_commit.message, '[prerel]') }}
-           body: |
-            Install packages with `sudo pacman -U <file>`, you can use urls or file paths.
-        env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create Tag
+      id: create_tag
+      run: |
+        source PKGBUILD
+        echo "::set-output name=tag::${pkgver}-${pkgrel}"
+        echo $pkgver $pkgrel
+    - name: Release
+      if: ${{ github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[no rel]') }}
+      uses: softprops/action-gh-release@v1
+      with:
+         files: |
+           ${{ github.workspace }}/*.pkg.tar.*
+         tag_name: v${{ steps.create_tag.outputs.tag }}
+         draft: ${{ contains(github.event.head_commit.message, '[draft]') }}
+         prerelease: ${{ contains(github.event.head_commit.message, '[prerel]') }}
+         body: |
+          Install packages with `sudo pacman -U <file>`, you can use urls or file paths.
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
