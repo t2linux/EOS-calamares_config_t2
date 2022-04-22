@@ -22,12 +22,12 @@ optdepends=(
   'vim: alternative app for pacdiff to use'
 )
 
-url=https://github.com/t2linux/EOS-calamares_config_t2/tree/welcome/$pkgname
-_url="https://raw.githubusercontent.com/t2linux/EOS-calamares_config_t2/welcome/$pkgname"
+url=https://github.com/t2linux/EOS-calamares_config_t2/tree/welcome/
+_url="https://raw.githubusercontent.com/t2linux/EOS-calamares_config_t2/welcome/"
 
 source=(
-  $_url/$pkgname
-  $_url/$pkgname.desktop
+  $_url/welcome
+  $_url/welcome.desktop
   $_url/wallpaper-once
   $_url/wallpaper-once.desktop
   $_url/eos-kill-yad-zombies
@@ -40,7 +40,7 @@ sha512sums=('3bae40331ce6c10e97d8fcf776098f55994c600a9a855e95d55160b8f42332d159e
             'a193a605d95d837db568dab2feb074c035bea12bc7b08a39a7be3b075dd063cd05fb46b4bde5c86f81a26456c0aab3b0b834cb1ffd88820095a14291b4e059a5'
             '90dfc1f08a428787305d72a2e439a377aee0bc095fcb0a2efb4245a15285d4b96b5e0ac644c02f27ab68aebbfc5c64e6ab7d733d9db8952d2999d589410d3b9e'
             '9f0cd5edabf93439656046c60dc6a29f439a9d8b7afab8ec03b9470321ba98fc53b927944e2f68b5b152c150cca76913490eaab4256a5699da5960f860d81e81'
-            'a36dfe2d49544c4c466b0f1109bf9489af2c83bec5886fc756ebce7d5733a8446096903b2ab11f577eb4ffb51aefcfed27196122d43357bc6488f5ef402b188c')
+            'SKIP')
 package() {
   install -d $pkgdir/usr/share/endeavouros/scripts
   install -Dm755 $pkgname                 $pkgdir/usr/share/endeavouros/scripts/$pkgname
