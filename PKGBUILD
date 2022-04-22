@@ -43,11 +43,11 @@ sha512sums=('3bae40331ce6c10e97d8fcf776098f55994c600a9a855e95d55160b8f42332d159e
             'SKIP')
 package() {
   install -d $pkgdir/usr/share/endeavouros/scripts
-  install -Dm755 $pkgname                 $pkgdir/usr/share/endeavouros/scripts/$pkgname
+  install -Dm755 welcome                 $pkgdir/usr/share/endeavouros/scripts/welcome
   install -Dm755 wallpaper-once           $pkgdir/usr/share/endeavouros/scripts/wallpaper-once
 
   install -d $pkgdir/usr/bin
-  ln -s /usr/share/endeavouros/scripts/$pkgname $pkgdir/usr/bin/eos-$pkgname
+  ln -s /usr/share/endeavouros/scripts/welcome $pkgdir/usr/bin/eos-welcome
 
   install -Dm755 eos-kill-yad-zombies           $pkgdir/usr/bin/eos-kill-yad-zombies
   install -Dm755 welcome-dnd                    $pkgdir/usr/bin/welcome-dnd
@@ -55,12 +55,12 @@ package() {
 
   install -d $pkgdir/etc/xdg/autostart
   install -Dm644 wallpaper-once.desktop   $pkgdir/etc/xdg/autostart/wallpaper-once.desktop
-  install -Dm644 $pkgname.desktop         $pkgdir/etc/xdg/autostart/$pkgname.desktop      # no --once
+  install -Dm644 welcome.desktop         $pkgdir/etc/xdg/autostart/welcome.desktop      # no --once
 
   install -d $pkgdir/usr/share/applications
-  cp -a $pkgname.desktop $pkgname.desktop-enable
-  sed -i $pkgname.desktop-enable \
+  cp -a welcome.desktop welcome.desktop-enable
+  sed -i welcome.desktop-enable \
       -e 's|^\(Exec=.* --startdelay.*\)$|#\1|' \
       -e 's|^#\(Exec=.* --once.*\)$|\1|'
-  install -Dm644 $pkgname.desktop-enable         $pkgdir/usr/share/applications/$pkgname.desktop      # has --once
+  install -Dm644 welcome.desktop-enable         $pkgdir/usr/share/applications/welcome.desktop      # has --once
 }
