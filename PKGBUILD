@@ -17,7 +17,7 @@ sha512sums=('SKIP')
 _date=$(date +%Y.%m.%d)
 
 prepare() {
-    mv "$_repo_name-$pkgver-T2"            "$_repo_name"
+    mv "$_repo_name-$pkgver-t2linux"            "$_repo_name"
 
     # set date for calamares_branding
     sed -i "$srcdir/${_repo_name}/calamares/branding/endeavouros/branding.desc" \
