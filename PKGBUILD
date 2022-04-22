@@ -9,7 +9,7 @@ pkgdesc='EndeavourOS calamares configuration files and branding for Apple device
 arch=('any')
 url='https://t2linux.org'
 license=('GPL3')
-source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-T2.tar.gz")
+source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-t2linux.tar.gz")
 
 sha512sums=('SKIP')
 
