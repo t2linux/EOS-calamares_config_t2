@@ -3,13 +3,13 @@
 
 pkgname=calamares_config_ce_t2
 pkgver=22.04.1.4
-pkgrel=3
+pkgrel=4
 _repo_name=EndeavourOS-calamares-t2
 pkgdesc='EndeavourOS calamares configuration files for Community Editions for Apple devices with the T2 security chip'
 arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
-source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-T2.tar.gz")
+source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-t2linux.tar.gz")
 
 sha512sums=('SKIP')
 
