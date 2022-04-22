@@ -3,13 +3,13 @@
 
 pkgname=calamares_config_t2
 pkgver=22.04.1.4
-pkgrel=4
+pkgrel=5
 _repo_name=EndeavourOS-calamares-t2
 pkgdesc='EndeavourOS calamares configuration files and branding for Apple devices with the T2 security chip'
 arch=('any')
 url='https://t2linux.org'
 license=('GPL3')
-source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-t2linux.tar.gz")
+source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-${pkgrel}-t2linux.tar.gz")
 
 sha512sums=('SKIP')
 
@@ -17,7 +17,7 @@ sha512sums=('SKIP')
 _date=$(date +%Y.%m.%d)
 
 prepare() {
-    mv "$_repo_name-$pkgver-t2linux"            "$_repo_name"
+    mv "$_repo_name-$pkgver-$pkgrel-t2linux"            "$_repo_name"
 
     # set date for calamares_branding
     sed -i "$srcdir/${_repo_name}/calamares/branding/endeavouros/branding.desc" \
