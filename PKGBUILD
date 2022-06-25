@@ -1,15 +1,15 @@
 # Current t2linux Maintainer: Noa Himesaka <himesaka@noa.codes>
-# EndeavourOS Maintainer: EndeavourOS <info@endeavouros.com>
+# Maintainer: EndeavourOS <info@endeavouros.com>
 
 pkgname=calamares_config_ce_t2
-pkgver=22.04.1.4
-pkgrel=5
+pkgver=22.06.1.9
+pkgrel=1
 _repo_name=EndeavourOS-calamares-t2
-pkgdesc='EndeavourOS calamares configuration files for Community Editions for Apple devices with the T2 security chip'
+pkgdesc='EndeavourOS calamares configuration files for Community Editions'
 arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
-source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-${pkgrel}-t2linux.tar.gz")
+source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-t2.tar.gz")
 
 sha512sums=('SKIP')
 
@@ -18,7 +18,7 @@ _caldir="$pkgname/calamares"
 
 prepare() {
     mkdir -p "$_caldir/modules"
-    mv "$_repo_name-$pkgver-$pkgrel-t2linux"            "$_repo_name"
+    mv "$_repo_name-$pkgver-t2"            "$_repo_name"
 
     cp "${_repo_name}/calamares/modules/netinstall-ce-base.yaml"            "$_caldir/modules/"
     cp "${_repo_name}/calamares/modules/packagechooser_ce.conf"             "$_caldir/modules/"
@@ -31,3 +31,4 @@ package() {
     install -dm 755 "$pkgdir/etc/calamares"
     cp -r --no-preserve=ownership "$_caldir" "$pkgdir/etc/"
 }
+
