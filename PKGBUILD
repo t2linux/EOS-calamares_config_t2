@@ -3,13 +3,13 @@
 
 pkgname=calamares_config_ce_t2
 pkgver=22.06.1.9
-pkgrel=1
+pkgrel=3
 _repo_name=EndeavourOS-calamares-t2
 pkgdesc='EndeavourOS calamares configuration files for Community Editions'
 arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
-source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-t2.tar.gz")
+source=("https://github.com/t2linux/${_repo_name}/archive/refs/tags/${pkgver}-${pkgrel}-t2.tar.gz")
 
 sha512sums=('SKIP')
 
@@ -18,7 +18,7 @@ _caldir="$pkgname/calamares"
 
 prepare() {
     mkdir -p "$_caldir/modules"
-    mv "$_repo_name-$pkgver-t2"            "$_repo_name"
+    mv "$_repo_name-$pkgver-$pkgrel-t2"            "$_repo_name"
 
     cp "${_repo_name}/calamares/modules/netinstall-ce-base.yaml"            "$_caldir/modules/"
     cp "${_repo_name}/calamares/modules/packagechooser_ce.conf"             "$_caldir/modules/"
