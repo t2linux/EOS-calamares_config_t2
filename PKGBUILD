@@ -3,7 +3,7 @@
 
 pkgname=calamares_config_t2
 pkgver=22.06.1.9
-pkgrel=10
+pkgrel=11
 _repo_name=EndeavourOS-calamares-t2
 pkgdesc='EndeavourOS calamares configuration files and branding'
 arch=('any')
