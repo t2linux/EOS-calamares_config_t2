@@ -2,8 +2,8 @@
 # Maintainer: EndeavourOS <info@endeavouros.com>
 
 pkgname=calamares_config_ce_t2
-pkgver=22.06.1.9
-pkgrel=12
+pkgver=22.09.2.3
+pkgrel=1
 _repo_name=EndeavourOS-calamares-t2
 pkgdesc='EndeavourOS calamares configuration files for Community Editions'
 arch=('any')
