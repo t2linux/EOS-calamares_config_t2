@@ -10,19 +10,19 @@ jobs:
       run: |
         cat << EOF > entrypoint.sh
         cd /etc/pacman.d
-        pacman -Syu --noconfirm --needed wget
+        pacman -Syu --noconfirm --needed wget sudo base-devel
         wget "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist"
         echo "" >> /etc/pacman.conf
         echo "[endeavouros]" >> /etc/pacman.conf
         echo "SigLevel = Never" >> /etc/pacman.conf
         echo "Include = /etc/pacman.d/endeavouros-mirrorlist" >> /etc/pacman.conf
         echo "" >> /etc/pacman.conf
+        pacman -Sy
         cd /build
         useradd builduser -m
         passwd -d builduser
-        pacman -Syu --noconfirm --needed sudo base-devel
-        wget "https://archive.archlinux.org/packages/k/kpmcore/kpmcore-22.08.3-1-x86_64.pkg.tar.zst"
-        pacman -U kpmcore-22.08.3-1-x86_64.pkg.tar.zst
+        # wget "https://archive.archlinux.org/packages/k/kpmcore/kpmcore-22.08.3-1-x86_64.pkg.tar.zst"
+        # pacman -U kpmcore-22.08.3-1-x86_64.pkg.tar.zst
         printf 'builduser ALL=(ALL) ALL\\n' | tee -a /etc/sudoers
         chown -R builduser:builduser ./
         sudo -u builduser bash -c 'export MAKEFLAGS=j\$(nproc) && makepkg -s --noconfirm'
