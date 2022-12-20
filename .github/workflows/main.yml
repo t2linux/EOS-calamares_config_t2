@@ -21,6 +21,8 @@ jobs:
         useradd builduser -m
         passwd -d builduser
         pacman -Syu --noconfirm --needed sudo base-devel
+        wget "https://archive.archlinux.org/packages/k/kpmcore/kpmcore-22.08.3-1-x86_64.pkg.tar.zst"
+        pacman -U kpmcore-22.08.3-1-x86_64.pkg.tar.zst
         printf 'builduser ALL=(ALL) ALL\\n' | tee -a /etc/sudoers
         chown -R builduser:builduser ./
         sudo -u builduser bash -c 'export MAKEFLAGS=j\$(nproc) && makepkg -s --noconfirm'
