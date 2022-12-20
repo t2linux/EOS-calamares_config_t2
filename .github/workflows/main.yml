@@ -10,6 +10,7 @@ jobs:
       run: |
         cat << EOF > entrypoint.sh
         cd /etc/pacman.d
+        pacman -Syu --noconfirm --needed wget
         wget "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist"
         echo "" >> /etc/pacman.conf
         echo "[endeavouros]" >> /etc/pacman.conf
