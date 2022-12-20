@@ -9,6 +9,13 @@ jobs:
     - name: Build In Docker
       run: |
         cat << EOF > entrypoint.sh
+        cd /etc/pacman.d
+        wget "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist"
+        echo "" >> /etc/pacman.conf
+        echo "[endeavouros]" >> /etc/pacman.conf
+        echo "SigLevel = Never" >> /etc/pacman.conf
+        echo "Include = /etc/pacman.d/endeavouros-mirrorlist" >> /etc/pacman.conf
+        echo "" >> /etc/pacman.conf
         cd /build
         useradd builduser -m
         passwd -d builduser

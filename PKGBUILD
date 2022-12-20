@@ -1,5 +1,7 @@
+# Maintainer: Noa Himesaka <himesaka@noa.code>
+# Maintainer: t2linux
 # Original Maintainer: Portergos Linux <portergoslinux@gmail.com>
-# Maintainer : EndeavourOS <info@endeavouros.com>
+# EndeavourOS Maintainer : EndeavourOS <info@endeavouros.com>
 # Calamares installer configured for EndeavourOS
 #
 # Configurations are in extra packages:
@@ -30,7 +32,7 @@ source=(
   "calamares.desktop.patch"
 )
 
-sha256sums=('76c49bca26ca27eccf7b51e4e33c4544daf6c4ebed8e907431d8043f6006ba66'
+sha256sums=('7a33b99de52d2fa694e2af6e099986d7a49901db31efa76ee67162c2aee85913'
             '7591b9b60738bdba7b9de2b8da5462ab21006db06a006f0dd21ac5b832711dd2'
             '66f7b90ab3bc32103d2c3485ee32a4978b57aea466473cfbd06fcb93058d0df8')
 
