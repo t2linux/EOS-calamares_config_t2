@@ -41,8 +41,8 @@ prepare() {
     rm -r "${_reponame}-${_calamares_ver}/src/modules/"{fstab,mount,packages}
 
     # move extra modules from external repo inside calamares sources
-    rsync -va "${_eos_changes}-${pkgver}/calamares-extra-modules/"*       "${_reponame}-${_calamares_ver}/"
-    rm -rf "${_eos_changes}-${pkgver}"
+    rsync -va "${_eos_changes}-${pkgver}-t2/calamares-extra-modules/"*       "${_reponame}-${_calamares_ver}/"
+    rm -rf "${_eos_changes}-${pkgver}-t2"
 
     mkdir -p "${_reponame}-${_calamares_ver}/build/$pkgname"
 
