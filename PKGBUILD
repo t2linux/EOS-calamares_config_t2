@@ -20,7 +20,7 @@ provides=("calamares")
 options=(!strip !emptydirs)
 source=("https://github.com/t2linux/${pkgname}/archive/refs/tags/${pkgver}-t2.tar.gz")
 
-sha256sums=('97636244e67ea626098cd35cf16582c3c46a62a1218c22f24d7768e3952424c7')
+sha256sums=('6688c43261d8c8222a081298eb150ea18ac883f157aaa81b286fe7368a705893')
 
 build() {
     cmake -B build -S "${srcdir}/calamares-eos-t2-${pkgver}-t2" \
