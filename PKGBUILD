@@ -21,7 +21,7 @@ provides=("calamares")
 options=(!strip !emptydirs)
 source=("https://github.com/t2linux/${pkgname}/archive/refs/tags/${pkgver}-t2.tar.gz")
 
-sha256sums=('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')
+sha256sums=('667636e048f1503eeb77f1b6868653b89fc2c3f2970d6b0de3d65c156e215ac2')
 
 prepare() {
     # Update branding.desc with the proper values
