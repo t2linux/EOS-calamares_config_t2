@@ -5,22 +5,35 @@
 # Calamares installer configured for EndeavourOS for Macs with T2 security chip
 
 pkgname=calamares-eos-t2
-pkgver=22.12.3.7
+pkgver=23.10.1.3
 pkgrel=1
+release_name="Galileo"
 pkgdesc="Calamares installer for EndeavourOS for Macs with T2 security chip"
 arch=('any')
-url="https://t2linux.org"
+url="https://github.com/t2linux/calamares-eos-t2"
 license=('GPL3')
-makedepends=('git' 'cmake' 'extra-cmake-modules' 'kpmcore' 'boost' 'python-jsonschema' 'python-pyaml' 'python-unidecode')
+makedepends=('git' 'cmake' 'extra-cmake-modules' 'kpmcore' 'boost' 'python-jsonschema' 'python-pyaml' 'python-unidecode' 'gawk')
 conflicts=('calamares_current')
-depends=( 'qt5-svg' 'qt5-webengine' 'yaml-cpp' 'networkmanager' 'upower' 'kcoreaddons' 'kconfig' 'ki18n' 'kservice' \
-'kwidgetsaddons' 'kpmcore' 'squashfs-tools' 'rsync' 'cryptsetup' 'qt5-xmlpatterns' 'doxygen' 'dmidecode' \
-'gptfdisk' 'hwinfo' 'kparts' 'polkit-qt5' 'python' 'solid' 'qt5-tools' 'boost-libs' 'libpwquality' 'ckbcomp' 'qt5-quickcontrols2' )
+depends=( 'qt5-svg' 'qt5-webengine' 'yaml-cpp' 'networkmanager' 'upower' 'kcoreaddons5' 'kconfig5' 'ki18n5' 'kservice5' \
+'kwidgetsaddons5' 'kpmcore' 'squashfs-tools' 'rsync' 'cryptsetup' 'qt5-xmlpatterns' 'doxygen' 'dmidecode' \
+'gptfdisk' 'hwinfo' 'kparts5' 'polkit-qt5' 'python' 'solid5' 'qt5-tools' 'boost-libs' 'libpwquality' 'ckbcomp' 'qt5-quickcontrols2' )
 provides=("calamares")
 options=(!strip !emptydirs)
 source=("https://github.com/t2linux/${pkgname}/archive/refs/tags/${pkgver}-t2.tar.gz")
 
-sha256sums=('8d80a5e4d0342ce4276f3176f1907b232e4de5b73af06377b00ca82c26226b49')
+sha256sums=('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')
+
+prepare() {
+    # Update branding.desc with the proper values
+    replace_command='
+    {
+        gsub(/\${version}/,version);
+        gsub(/\${release_name}/,release);
+        print
+    }
+    '
+    awk -i inplace -v version="${pkgver}" -v release="${release_name}" "$replace_command" "${srcdir}/calamares-eos-t2-${pkgver}-t2/data/eos/branding/endeavouros/branding.desc"
+}
 
 build() {
     cmake -B build -S "${srcdir}/calamares-eos-t2-${pkgver}-t2" \
