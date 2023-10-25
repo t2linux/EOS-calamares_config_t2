@@ -5,7 +5,7 @@
 # Calamares installer configured for EndeavourOS for Macs with T2 security chip
 
 pkgname=calamares-eos-t2
-pkgver=23.10.1.4
+pkgver=23.10.1.5
 pkgrel=1
 release_name="Galileo"
 pkgdesc="Calamares installer for EndeavourOS for Macs with T2 security chip"
