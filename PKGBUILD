@@ -32,11 +32,11 @@ prepare() {
         print
     }
     '
-    awk -i inplace -v version="${pkgver}-t2" -v release="${release_name}" "$replace_command" "${srcdir}/calamares-${pkgver}-t2/data/eos/branding/endeavouros/branding.desc"
+    awk -i inplace -v version="${pkgver}-t2" -v release="${release_name}" "$replace_command" "${srcdir}/calamares-eos-t2-${pkgver}-t2/data/eos/branding/endeavouros/branding.desc"
 }
 
 build() {
-    cmake -B build -S "${srcdir}/calamares-${pkgver}-t2" \
+    cmake -B build -S "${srcdir}/calamares-eos-t2-${pkgver}-t2" \
     -DWITH_QT6=ON \
     -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_INSTALL_LIBDIR=/usr/lib \
@@ -54,6 +54,6 @@ build() {
 package() {
     make -C build DESTDIR="${pkgdir}" install
     install -dm 755 "${pkgdir}/etc"
-    cp -rp "${srcdir}/calamares-${pkgver}-t2/data/eos" "${pkgdir}/etc/calamares"
+    cp -rp "${srcdir}/calamares-eos-t2-${pkgver}-t2/data/eos" "${pkgdir}/etc/calamares"
 }
 
