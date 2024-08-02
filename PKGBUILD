@@ -5,7 +5,7 @@
 # Calamares installer configured for EndeavourOS for Macs with T2 security chip
 
 pkgname=calamares-eos-t2
-pkgver=24.04.1.4
+pkgver=24.06.1.2
 pkgrel=1
 release_name="Gemini-T2"
 pkgdesc="Calamares installer for EndeavourOS for Macs with T2 security chip"
@@ -21,7 +21,7 @@ provides=("calamares")
 options=(!strip !emptydirs)
 source=("https://github.com/t2linux/${pkgname}/archive/refs/tags/${pkgver}-t2.tar.gz")
 
-sha256sums=('2d913c7475bcdb7d4903d6889bd0c3bce6ef5b4f1efd5f1877266c9dc847ff0c')
+sha256sums=('f3edf75467588783bfbf5c8741a4a843293991b8d51732ddcb64f1e5f4aa9c0d')
 
 prepare() {
     # Update branding.desc with the proper values
