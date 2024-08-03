@@ -6,8 +6,8 @@
 
 pkgname=calamares-eos-t2
 pkgver=24.06.1.2
-pkgrel=1
-release_name="Gemini-T2"
+pkgrel=2
+release_name="Endeavour-T2"
 pkgdesc="Calamares installer for EndeavourOS for Macs with T2 security chip"
 arch=('any')
 url="https://github.com/t2linux/calamares-eos-t2"
