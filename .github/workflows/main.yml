@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Build In Docker
       run: |
         cat << EOF > entrypoint.sh
@@ -34,7 +34,7 @@ jobs:
       run: sha512sum *.pkg.tar.*
 
     - name: Upload Built Packages
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: built-packages
         path: ${{ github.workspace }}/*.pkg.tar.*
