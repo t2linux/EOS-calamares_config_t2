@@ -5,9 +5,9 @@
 # Calamares installer configured for EndeavourOS for Macs with T2 security chip
 
 pkgname=calamares-eos-t2
-pkgver=25.02.1.5
+pkgver=25.11.1.9
 pkgrel=1
-release_name="Mercury-T2"
+release_name="Ganymede-T2"
 pkgdesc="Calamares installer for EndeavourOS for Macs with T2 security chip"
 arch=('any')
 url="https://github.com/t2linux/calamares-eos-t2"
@@ -21,7 +21,7 @@ provides=("calamares")
 options=(!strip !emptydirs)
 source=("https://github.com/t2linux/${pkgname}/archive/refs/tags/${pkgver}-t2.tar.gz")
 
-sha256sums=('d039e5827c01bb7f0a3a2f13a8e73302c7ddc43700d50771f61ad26df4d2188f')
+sha256sums=('378e669d2eefbc4b94cf60a7b27197f68ce363da7e157734cdebb75e2cf1a1eb')
 
 prepare() {
     # Update branding.desc with the proper values
