@@ -6,7 +6,7 @@
 
 pkgname=calamares-eos-t2
 pkgver=25.11.1.9
-pkgrel=1
+pkgrel=2
 release_name="Ganymede-T2"
 pkgdesc="Calamares installer for EndeavourOS for Macs with T2 security chip"
 arch=('any')
@@ -46,7 +46,7 @@ build() {
     dummycpp dummyprocess dummypython dummypythonqt \
     finishedq initcpio keyboardq license localeq notesqml oemid \
     openrcdmcryptcfg plymouthcfg plasmalnf services-openrc \
-    summaryq tracking usersq webview welcomeq"
+    summaryq tracking webview welcomeq"
     export DESTDIR="$srcdir/build"
     make -C build
 }
