@@ -5,7 +5,7 @@
 # Calamares installer configured for EndeavourOS for Macs with T2 security chip
 
 pkgname=calamares-eos-t2
-pkgver=26.04.1.1
+pkgver=26.03.1.3
 pkgrel=1
 release_name="Titan-T2"
 pkgdesc="Calamares installer for EndeavourOS for Macs with T2 security chip"
@@ -21,7 +21,7 @@ provides=("calamares")
 options=(!strip !emptydirs)
 source=("https://github.com/t2linux/${pkgname}/archive/refs/tags/${pkgver}-t2.tar.gz")
 
-sha256sums=('77b28375f51259f9a6899e6f8c53ba7abf1a73690f0221bb4d0627254560549a')
+sha256sums=('374e9598e649fec5d09b9d59aeacde8d1ca6305b3263ae0266675525654ac947')
 
 prepare() {
     # Update branding.desc with the proper values
